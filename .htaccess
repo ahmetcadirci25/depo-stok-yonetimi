@@ -1,0 +1,32 @@
+# Güvenlik: Dizin listeleme kapalı
+Options -Indexes +FollowSymLinks
+
+# Apache 2.4+ güvenlik
+Require all granted
+
+# Sunucu imzası gizleme
+ServerSignature Off
+
+# Gizli dosyaları ve hassas extension'ları engelle
+<FilesMatch "\.(env|log|sql|sqlite|md|git|htaccess|htpasswd|ini|cfg|json|xml|yml|yaml|bat|sh)$">
+    Require all denied
+</FilesMatch>
+
+# HTTP güvenlik başlıkları
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Clickjacking koruması
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src 'self' data:; img-src 'self' data:;"
+</IfModule>
+
+# HTTPS yönlendirme (opsiyonel - sunucu destekliyorsa aktif et)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

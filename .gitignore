@@ -1,0 +1,12 @@
+# Tüm .md dosyalarını ignore et
+*.md
+
+# README.md'yi tekrar dahil et
+!README.md
+
+# Diğerleri
+*.DS_Store
+*.py
+*.ftpconfig
+install/add-test-data.php
+install/data-clean.php

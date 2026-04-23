@@ -4,6 +4,10 @@ Küçük, orta ölçekli e-ticaret depoları için geliştirilmiş, barkod taban
 
 ![screenshot](screenshot.png)
 
+## Video
+
+https://github.com/user-attachments/assets/5a06ec6c-76da-46cf-a8e8-ba9577c4b636
+
 ---
 
 ## Özellikler

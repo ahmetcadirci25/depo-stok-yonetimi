@@ -52,7 +52,17 @@ Kurulum sırasında otomatik:
 - Varsayılan lokasyonlar oluşturulur
 - Admin kullanıcı oluşturulur
 
-### 3. Giriş Yap
+### 3. Docker Kurulumu
+
+```
+git clone https://github.com/ahmetcadirci25/depo-stok-yonetimi
+cd depo-stok-yonetimi
+docker compose up -d
+```
+
+`http://localhost:8085`
+
+### 4. Giriş Yap
 
 ```
 https://siteadiniz.com/login.php

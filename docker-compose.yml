@@ -1,0 +1,9 @@
+services:
+  depo:
+    build: .
+    container_name: depo-stok
+    restart: always
+    ports:
+      - 8085:80
+    volumes:
+      - ./database:/var/www/html/database
